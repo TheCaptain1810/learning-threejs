@@ -8,7 +8,7 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-const renderer = new THREE.WebGL3DRenderer();
+const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
@@ -18,3 +18,8 @@ const cube = new THREE.Mesh(geometry, material);
 
 scene.add(cube);
 camera.position.z = 5;
+
+function animate() {
+  renderer.render(scene, camera);
+}
+renderer.setAnimationLoop(animate);
